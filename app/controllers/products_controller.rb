@@ -18,14 +18,14 @@ class ProductsController < ApplicationController
   end
   def new
     @product = Product.new
-  end 
+  end
   def create
-    @product = Product.new 
+    @product = Product.new
     @product.name = params["name"]
     @product.description = params["description"]
     @product.price = params["price"]
     @product.inventory = params["inventory"]
-    @product.save 
-    redirect_to '/products' 
-  end     
+    @product.save
+    redirect_to '/products'
+  end
 end
