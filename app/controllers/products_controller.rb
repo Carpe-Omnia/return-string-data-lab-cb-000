@@ -16,4 +16,10 @@ class ProductsController < ApplicationController
       render plain: "false"
     end
   end
+  def new
+    @product = Product.new
+  end 
+  def create
+    @product = Product.create(params) 
+  end     
 end
