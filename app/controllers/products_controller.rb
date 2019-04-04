@@ -6,14 +6,14 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: params["id"])
     description = product.description
     render plain: description
-  end 
-  def inventory 
+  end
+  def inventory
     product = Product.find_by(id: params["id"])
     inventory = product.inventory
-    if inventory > 0 
+    if inventory > 0
       render plain: "true"
-    else 
+    else
       render plain: "false"
-    end     
-  end   
+    end
+  end
 end
