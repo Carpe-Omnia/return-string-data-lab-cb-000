@@ -6,10 +6,15 @@
 $(function () {
   $(".js-more").on('click', function() {
     let id = $(this).data("id");
+    let returned_data = ""
     $.get("/products/" + id + "/description", function(data) {
-      // Replace text of body-id div
-      $("#body-" + id).text(data);
+      returned_data += data
     });
+    $.get("/products/" + id + "/inventory", function(data) {
+      if (data == "true"){returned_data += " Abailable" }
+      else{returned_data += " Sold Out"}
+    });
+    $("#body-" + id).text(returned_data);
   });
 });
 </script>
