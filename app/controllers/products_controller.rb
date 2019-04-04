@@ -20,6 +20,12 @@ class ProductsController < ApplicationController
     @product = Product.new
   end 
   def create
-    @product = Product.create(params) 
+    @product = Product.new 
+    @product.name = params["name"]
+    @product.description = params["description"]
+    @product.price = params["price"]
+    @product.inventory = params["inventory"]
+    @product.save 
+    redirect_to '/products' 
   end     
 end
